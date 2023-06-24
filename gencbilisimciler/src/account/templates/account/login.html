@@ -38,8 +38,8 @@
 
 
 <form class="form-signin" method="post">{% csrf_token %}
-  <div class="d-flex flex-column pb-3">
-    <img class="img-fluid mx-auto d-block" src="{% static 'codingwithmitch_logo.png' %}" alt="Codignwithmitch logo image" width="72" height="72">
+  <div class="d-flex flex-column pb-3" style="padding-top: 60px;">
+    <img class="img-fluid mx-auto d-block" src="{% static 'logo.png' %}" alt="Codignwithmitch logo image" width="250" height="250">
   </div>
   
   <h1 class="h3 mb-3 font-weight-normal">Login</h1>
@@ -68,7 +68,12 @@
 
 <div class="d-flex flex-column">
   <a class="m-auto" href="{% url 'password_reset' %}">Reset password</a>
+  <div style="text-align: center;">
+    <p>Not registered yet!</p>
+  </div>
+  <a class="m-auto" href="{% url 'register' %}">Register</a>
 </div>
+
 
 
 
