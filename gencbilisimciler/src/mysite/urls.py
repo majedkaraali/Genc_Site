@@ -23,7 +23,8 @@ from personal.views import (
 	home_screen_view,
     all_posts_view,
     all_events,
-    team_view
+    team_view,
+    about_us
 )
 
 from account.views import (
@@ -37,6 +38,7 @@ from account.views import (
 
 urlpatterns = [
     path('', home_screen_view, name="home"),
+    path('about/',about_us,name='about'),
     path('account/', account_view, name="account"),
     path('admin/', admin.site.urls),
     path('blog/', include('blog.urls', 'blog')),
@@ -46,6 +48,7 @@ urlpatterns = [
     path('blogs/',all_posts_view,name='blogs'),
     path('events/',all_events,name='events'),
     path('team/',team_view,name='team'),
+
 
    # path('register/', registration_view, name="register"),
 

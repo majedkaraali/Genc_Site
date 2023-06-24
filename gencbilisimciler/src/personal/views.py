@@ -82,6 +82,11 @@ def team_view(requset):
 	return render(requset,"personal/team.html")
 
 
+def about_us(requset):
+	return render (requset,"personal/about.html")
+
+
+
 
 
 
