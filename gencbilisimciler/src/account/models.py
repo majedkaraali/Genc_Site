@@ -1,6 +1,11 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 
+def upload_location(instance, filename):
+	file_path = 'blog/{author_id}/{title}-{filename}'.format(
+				author_id=str(instance.author.id),title=str(instance.title), filename=filename)
+	return file_path
+
 
 class MyAccountManager(BaseUserManager):
 	def create_user(self, email, username, password=None):
@@ -40,6 +45,7 @@ class Account(AbstractBaseUser):
 	is_active				= models.BooleanField(default=True)
 	is_staff				= models.BooleanField(default=False)
 	is_superuser			= models.BooleanField(default=False)
+	profile_photo           = models.ImageField(upload_to=upload_location, null=True, blank=True)
 
 
 	USERNAME_FIELD = 'email'
