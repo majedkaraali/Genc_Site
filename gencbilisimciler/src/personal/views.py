@@ -79,6 +79,22 @@ def all_events(requset):
 	return render(requset, "personal/all_events.html", context)
 
 
+from itertools import chain
+from operator import attrgetter
+
+def community_view(request):
+    context = {}
+    
+    # Retrieve all blog posts and events
+    blog_posts = get_blog_queryset("")
+    events = Event.objects.all()
+    
+    # Combine and sort the blog posts and events by date
+    all_items = sorted(chain(blog_posts, events), key=attrgetter('date_updated'), reverse=True)
+    
+    context['all_items'] = all_items
+    return render(request, "personal/community.html", context)
+
 def team_view(requset):
 	context = {}
 	accounts=Account.objects.all()

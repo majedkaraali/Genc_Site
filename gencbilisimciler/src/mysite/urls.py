@@ -24,7 +24,8 @@ from personal.views import (
     all_posts_view,
     all_events,
     team_view,
-    about_us
+    about_us,
+    community_view
 )
 
 from account.views import (
@@ -48,6 +49,8 @@ urlpatterns = [
     path('blogs/',all_posts_view,name='blogs'),
     path('events/',all_events,name='events'),
     path('team/',team_view,name='team'),
+    
+    path('community/',community_view,name='community'),
 
 
     path('register/', registration_view, name="register"),
