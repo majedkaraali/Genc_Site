@@ -54,78 +54,27 @@
 .box-primary {
   background-color: #ffffff;
 }
-
-.box-secondary {
-  background-color: #ffffff;
-}
-
-.box-success {
-  background-color: #ffffff;
-}
-
-.box-danger {
-  background-color: #ffffff;
-}
-
-.box-warning {
-  background-color: #ffffff;
-}
-
-.box-info {
-  background-color: #ffffff;
-}
-
-.box-light {
-  background-color: #ffffff;
-}
-
-.box-dark {
-  background-color: #ffffff;
-}
-
 </style>
-
-
 
 <div class="container">
     <h1>Team</h1>
     <div class="row">
       <div class="col-md-4">
+        {% for account in accounts %}
+        
         <div class="card">
-          <img class="card-img-top" src="https://avatars.githubusercontent.com/u/12345678?v=4" alt="Card image cap">
+          <p>{{account.username}}</p>
+          <img class="card-img-top" src="{{account.profile_photo.url}}" alt="Card image cap">
           <div class="card-body">
             <h5 class="card-title">Team Member 1</h5>
             <p class="card-text">
-              Team Member 1 is a software engineer with 5+ years of experience. They are passionate about using technology to solve real-world problems.
+              industry:industry
             </p>
             <a href="https://www.linkedin.com/in/team-member-1" class="btn btn-primary">View Profile</a>
           </div>
         </div>
       </div>
-      <div class="col-md-4">
-        <div class="card">
-          <img class="card-img-top" src="https://avatars.githubusercontent.com/u/98765432?v=4" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Team Member 2</h5>
-            <p class="card-text">
-              Team Member 2 is a data scientist with 3+ years of experience. They are passionate about using data to improve decision-making.
-            </p>
-            <a href="https://www.linkedin.com/in/team-member-2" class="btn btn-primary">View Profile</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card">
-          <img class="card-img-top" src="https://avatars.githubusercontent.com/u/87654321?v=4" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Team Member 3</h5>
-            <p class="card-text">
-              Team Member 3 is a UI/UX designer with 2+ years of experience. They are passionate about creating beautiful and user-friendly interfaces.
-            </p>
-            <a href="https://www.linkedin.com/in/team-member-3" class="btn btn-primary">View Profile</a>
-          </div>
-        </div>
-      </div>
+      {% endfor %}
     </div>
    
   </div>

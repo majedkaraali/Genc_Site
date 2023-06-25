@@ -60,35 +60,30 @@ def login_view(request):
 
 
 def account_view(request):
+    if not request.user.is_authenticated:
+        return redirect("login")
 
-	if not request.user.is_authenticated:
-			return redirect("login")
+    context = {}
+    if request.POST:
+        form = AccountUpdateForm(request.POST, request.FILES, instance=request.user)
+        if form.is_valid():
+            form.save()
+            context['success_message'] = "Updated"
+    else:
+        form = AccountUpdateForm(
+            initial={
+                "email": request.user.email,
+                "username": request.user.username,
+                "profile_photo": request.user.profile_photo,
+            }
+        )
 
-	context = {}
-	if request.POST:
-		form = AccountUpdateForm(request.POST, instance=request.user)
-		if form.is_valid():
-			form.initial = {
-					"email": request.POST['email'],
-					"username": request.POST['username'],
-			}
-			form.save()
-			context['success_message'] = "Updated"
-	else:
-		form = AccountUpdateForm(
+    context['account_form'] = form
+    blog_posts = BlogPost.objects.filter(author=request.user)
+    context['blog_posts'] = blog_posts
 
-			initial={
-					"email": request.user.email, 
-					"username": request.user.username,
-				}
-			)
+    return render(request, "account/account.html", context)
 
-	context['account_form'] = form
-
-	blog_posts = BlogPost.objects.filter(author=request.user)
-	context['blog_posts'] = blog_posts
-
-	return render(request, "account/account.html", context)
 
 
 def must_authenticate_view(request):

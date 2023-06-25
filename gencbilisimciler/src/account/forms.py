@@ -30,26 +30,36 @@ class AccountAuthenticationForm(forms.ModelForm):
 
 
 class AccountUpdateForm(forms.ModelForm):
+    profile_photo = forms.ImageField(required=False)
 
-	class Meta:
-		model = Account
-		fields = ('email', 'username', )
+    class Meta:
+        model = Account
+        fields = ('email', 'username', 'profile_photo')
 
-	def clean_email(self):
-		email = self.cleaned_data['email']
-		try:
-			account = Account.objects.exclude(pk=self.instance.pk).get(email=email)
-		except Account.DoesNotExist:
-			return email
-		raise forms.ValidationError('Email "%s" is already in use.' % account)
+    def clean_email(self):
+        email = self.cleaned_data['email']
+        try:
+            Account.objects.exclude(pk=self.instance.pk).get(email=email)
+            raise forms.ValidationError('Email "%s" is already in use.' % email)
+        except Account.DoesNotExist:
+            return email
 
-	def clean_username(self):
-		username = self.cleaned_data['username']
-		try:
-			account = Account.objects.exclude(pk=self.instance.pk).get(username=username)
-		except Account.DoesNotExist:
-			return username
-		raise forms.ValidationError('Username "%s" is already in use.' % username)
+    def clean_username(self):
+        username = self.cleaned_data['username']
+        try:
+            Account.objects.exclude(pk=self.instance.pk).get(username=username)
+            raise forms.ValidationError('Username "%s" is already in use.' % username)
+        except Account.DoesNotExist:
+            return username
+
+    def save(self, commit=True):
+        account = super().save(commit=False)
+        if self.cleaned_data['profile_photo']:
+            account.profile_photo = self.cleaned_data['profile_photo']
+        if commit:
+            account.save()
+        return account
+
 
 
 

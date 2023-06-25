@@ -43,7 +43,8 @@
 </style>
 
 
-<form class="form-signin" method="post">{% csrf_token %}
+<form class="form-signin" method="post" enctype="multipart/form-data">{% csrf_token %}
+
 
   <h1 class="h3 mb-3 font-weight-normal">Account</h1>
 
@@ -52,8 +53,8 @@
   <input type="text" name="username" id="inputUsername" class="form-control" placeholder="Username" required
   value="{{account_form.initial.username}}">
 
-  <input type="file" name="profile_picture" class="form-control"  required
-  value="{{account_form.initial.profile_picture}}" >
+  <input type="file" name="profile_photo" class="form-control" required>
+
 
 
   {% for field in account_form %}

@@ -2,13 +2,12 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 
 def upload_location(instance, filename):
-	file_path = 'blog/{author_id}/{title}-{filename}'.format(
-				author_id=str(instance.author.id),title=str(instance.title), filename=filename)
+	file_path = 'profile_photos/{filename}'.format(filename=filename)
 	return file_path
 
 
 class MyAccountManager(BaseUserManager):
-	def create_user(self, email, username, password=None):
+	def create_user(self, email, username, password=None,):
 		if not email:
 			raise ValueError('Users must have an email address')
 		if not username:
@@ -28,6 +27,7 @@ class MyAccountManager(BaseUserManager):
 			email=self.normalize_email(email),
 			password=password,
 			username=username,
+		
 		)
 		user.is_admin = True
 		user.is_staff = True

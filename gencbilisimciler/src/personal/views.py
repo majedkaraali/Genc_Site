@@ -4,6 +4,7 @@ from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from blog.views import get_blog_queryset
 from blog.models import BlogPost
 from personal.models import Event
+from account.models import Account
 
 BLOG_POSTS_PER_PAGE = 10
 
@@ -79,7 +80,11 @@ def all_events(requset):
 
 
 def team_view(requset):
-	return render(requset,"personal/team.html")
+	context = {}
+	accounts=Account.objects.all()
+	context['accounts']=accounts
+	
+	return render(requset,"personal/team.html",context)
 
 
 def about_us(requset):
