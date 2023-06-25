@@ -2,8 +2,14 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 
 def upload_location(instance, filename):
-	file_path = 'profile_photos/{filename}'.format(filename=filename)
-	return file_path
+    if instance.profile_photo and instance.profile_photo.name:
+        # If the instance has a non-empty profile photo, use its filename
+        file_path = 'profile_photos/{filename}'.format(filename=filename)
+    else:
+        # If the instance doesn't have a profile photo or it's empty, use the default blank.png
+        file_path = 'profile_photos/blank.png'
+    return file_path
+
 
 
 class MyAccountManager(BaseUserManager):
@@ -45,7 +51,10 @@ class Account(AbstractBaseUser):
 	is_active				= models.BooleanField(default=True)
 	is_staff				= models.BooleanField(default=False)
 	is_superuser			= models.BooleanField(default=False)
-	profile_photo           = models.ImageField(upload_to=upload_location, null=True, blank=True)
+	profile_photo 			= models.ImageField(upload_to=upload_location, null=True, blank=True, default='profile_photos/blank.png')
+	social_media_link 		= models.URLField(blank=True)
+	position 				= models.CharField(max_length=30, unique=True, blank=True)
+
 
 
 	USERNAME_FIELD = 'email'

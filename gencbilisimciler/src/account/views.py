@@ -75,6 +75,8 @@ def account_view(request):
                 "email": request.user.email,
                 "username": request.user.username,
                 "profile_photo": request.user.profile_photo,
+				"social_media_link": request.user.social_media_link,
+				"position":request.user.position,
             }
         )
 

@@ -34,7 +34,7 @@ class AccountUpdateForm(forms.ModelForm):
 
     class Meta:
         model = Account
-        fields = ('email', 'username', 'profile_photo')
+        fields = ('email', 'username', 'profile_photo','social_media_link','position')
 
     def clean_email(self):
         email = self.cleaned_data['email']
