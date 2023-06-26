@@ -74,13 +74,16 @@
   <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus value="{{ account_form.initial.email }}">
   
   <input type="text" name="username" id="inputUsername" class="form-control" placeholder="Username" required value="{{ account_form.initial.username }}">
-  <input type="text" name="position" id="inputposition" class="form-control" placeholder="your position in genç bilişimciler" required value="{{ account_form.initial.position }}">
+  
   
   <label for="profile-photo-input">Profile Picture</label>
   <input type="file" name="profile_photo" class="form-control" required id="profile-photo-input" >
   
-  <input type="url" name="social_media_link" id="inputSocialMediaLink" class="form-control" placeholder="Social media link" value="{{ account_form.initial.social_media_link }}">
+  {% if user.is_staff %}
 
+  <input type="text" name="position" id="inputposition" class="form-control" placeholder="your position in genç bilişimciler" required value="{{ account_form.initial.position }}">
+  <input type="url" name="social_media_link" id="inputSocialMediaLink" class="form-control" placeholder="profile link" value="{{ account_form.initial.social_media_link }}">
+  {% endif %}
   {% for field in account_form %}
     <p>
       {% for error in field.errors %}
