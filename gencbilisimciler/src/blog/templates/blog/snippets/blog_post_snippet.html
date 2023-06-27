@@ -1,6 +1,6 @@
 <style type="text/css">
 	.card{
-		max-width: 700px;
+		max-width: 400px;
 		
 		width: 100%;
 		height: auto;
@@ -12,13 +12,16 @@
 </style>
 
 {% if blog_post %}
+{% if blog_post.image %}
 <div class="container">
 	<div class="row">
 		<!-- Blog Post -->
 		<div class="card m-auto">
+			
 			<a href="{% url 'blog:detail' post.slug %}">
 				<img class="card-img-top" src="{{blog_post.image.url}}">
 			</a>
+			
 			<div class="card-body mt-2 mb-2">
 				<a href="{% url 'blog:detail' post.slug %}" style="text-decoration: none;">
 					<h2 class="card-title">{{blog_post.title}}</h2>
@@ -34,6 +37,7 @@
 		</div>
 	</div>
 </div>
+{% endif %}
 
 {% else %}
 
