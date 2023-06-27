@@ -1,10 +1,7 @@
-{% extends 'base.html' %}
-
-{% block content %}
-
-<div class="container">
+{% include 'snippets/header.html' %}
+<div style="padding-top: 100px;" class="container">
 	<div class="d-flex flex-column">
-		<p class="m-auto">You must authenticate to view this page. </p>
+		<p class="m-auto">You must be a part of GENÇ BİLİŞİMCİLER Community to view this page. </p>
 		<p class="m-auto">
 			<a href="{% url 'register' %}">Create an account</a> or 
 			<a href="{% url 'login' %}">login</a>.
@@ -12,6 +9,6 @@
 	</div>
 </div>
 
-{% endblock content %}
+
 
 

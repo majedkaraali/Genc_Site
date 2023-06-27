@@ -46,8 +46,9 @@
     <h1>Team</h1>
     <hr>
     <div class="row">
+        {% for account in accounts %}
         <div class="col-md-4">
-            {% for account in accounts %}
+           
             
             <div class="card">
                 <img class="card-img-top" src="{{account.profile_photo.url}}" alt="Card image cap">

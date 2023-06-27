@@ -53,7 +53,7 @@ class Account(AbstractBaseUser):
 	is_superuser			= models.BooleanField(default=False)
 	profile_photo 			= models.ImageField(upload_to=upload_location, null=True, blank=True, default='profile_photos/blank.png')
 	social_media_link 		= models.URLField(blank=True)
-	position 				= models.CharField(max_length=30, unique=True, blank=True)
+	position 				= models.CharField(max_length=50, blank=True ,default='Üye')
 
 
 
