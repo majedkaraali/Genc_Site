@@ -26,6 +26,7 @@
           align-items: center;
           border-radius: 20px;
           background: var(--bg-color);
+          margin-bottom: 25px;
         }
 
         .card__img {
@@ -105,12 +106,14 @@
     border-radius: 50%; /* Makes the image circular */
     object-fit: cover; /* Ensures the entire image is displayed within the circular shape */
 }
+
+
     </style>
 </head>
 
 
 <div class="container">
-    <h1>Team</h1>
+    <h1 style="padding-top: 70px;">Team</h1>
     <hr>
     <div class="row">
     {% for account in accounts %}
