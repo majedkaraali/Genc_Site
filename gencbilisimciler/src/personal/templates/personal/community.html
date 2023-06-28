@@ -138,7 +138,7 @@
                   {% if item.author.profile_photo %}
                     <img class="author-picture" src="{{ item.author.profile_photo.url }}" alt="Author Picture">
                   {% endif %}
-                  <span class="author-name">{{ item.author.username }}</span>
+                  <span class="author-name">{{ item.author.username }} posted on {{ item.date_published}}</span>
                 </div>
                 <div style="background-color: white;" class="card-header">
                   <h5>{{ item.title }}</h5>
@@ -147,18 +147,17 @@
           
                     <p>{{ item.content }}</p>
                     {% if item.body %}
-                      <p>Post body: {{ item.body }}</p>
-                    {% else %}
-                      <p>No body</p>
+                      <p>{{ item.body }}</p>
                     {% endif %}
           
-                  {% if item.time %}
-                    <p>Event time: {{ item.time }}</p>
-                  {% endif %}
+                  
                 </div>
                 {% if item.image %}
                   <img src="{{ item.image.url }}" alt="Item Image">
                 {% endif %}
+                {% if item.time %}
+                    <p>Event time: {{ item.time }}</p>
+                  {% endif %}
               </div>
             {% endif %}
           {% endfor %}
