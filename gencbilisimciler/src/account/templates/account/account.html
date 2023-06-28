@@ -69,7 +69,7 @@
     <img src="{{ account_form.initial.profile_photo.url }}" alt="Profile Photo">
   </div>
 
-  <h1 class="h3 mb-3 font-weight-normal">Account</h1>
+  <h1 class="h3 mb-3 font-weight-normal">{{ account_form.initial.username }}</h1>
 
   <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus value="{{ account_form.initial.email }}">
   
