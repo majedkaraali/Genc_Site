@@ -48,7 +48,7 @@ urlpatterns = [
     path('login/', login_view, name="login"),
     path('logout/', logout_view, name="logout"),
 	path('must_authenticate/', must_authenticate_view, name="must_authenticate"),
-    path('blogs/',all_posts_view,name='blogs'),
+   # path('blogs/',all_posts_view,name='blogs'),
     path('events/',all_events,name='events'),
     path('team/',team_view,name='team'),
 
