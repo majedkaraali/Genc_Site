@@ -275,7 +275,9 @@
 					<p class="lead">More blogs.</p>
 					{% if blog_posts %}
 					{% for post in blog_posts %}
+          {% if forloop.counter <= 4 %}
 					{% include 'blog/snippets/blog_post_title.html' with blog_post=post %}
+          {% endif %}
 					{% endfor %}
 					{% endif %}
 				</div>

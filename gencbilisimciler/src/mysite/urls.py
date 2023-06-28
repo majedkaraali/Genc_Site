@@ -19,6 +19,8 @@ from django.contrib.auth import views as auth_views
 from django.conf.urls.static import static
 from django.conf import settings
 
+
+
 from personal.views import (
 	home_screen_view,
     all_posts_view,
@@ -49,6 +51,8 @@ urlpatterns = [
     path('blogs/',all_posts_view,name='blogs'),
     path('events/',all_events,name='events'),
     path('team/',team_view,name='team'),
+
+
     
     path('community/',community_view,name='community'),
 
