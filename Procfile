@@ -1,1 +1,2 @@
-web: gunicorn gencbilisimciler.mysite.wsgi --log-file -
+gunicorn gencbilisimciler.mysite.wsgi:application --log-file -
+
