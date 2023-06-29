@@ -1,1 +1,1 @@
-wep gunicorn mysite.wsgi:application --log-file-
+web: gunicorn gencbilisimciler.wsgi --log-file -
