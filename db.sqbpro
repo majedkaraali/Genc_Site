@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="C:\Users\MACID-PC\Desktop\New folder\Genc_Site\db.sqlite3" readonly="0" foreign_keys="" case_sensitive_like="" temp_store="" wal_autocheckpoint="" synchronous=""/><attached/><window><main_tabs open="structure browser pragmas query" current="1"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="2910"/><column_width id="4" width="0"/></tab_structure><tab_browse><current_table name="0,0:"/><default_encoding codec=""/><browse_table_settings/></tab_browse><tab_sql><sql name="SQL 1">SELECT name FROM sqlite_master WHERE type='table';
+DELETE FROM sqlite_sequence;
+DELETE FROM account_account;
+DELETE FROM django_admin_log;
+DELETE FROM django_content_type;
+DELETE FROM auth_group_permissions;
+DELETE FROM auth_permission;
+DELETE FROM auth_group;
+DELETE FROM personal_event;
+DELETE FROM django_session;
+DELETE FROM blog_blogpost;
+
+
+</sql><current_tab id="0"/></tab_sql></sqlb_project>
