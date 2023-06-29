@@ -39,7 +39,7 @@ INSTALLED_APPS = [
 
     # My apps
 
-    'personal',
+    
     'account',
     'blog',
 
