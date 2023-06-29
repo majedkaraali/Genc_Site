@@ -38,7 +38,7 @@ if DEBUG:
 INSTALLED_APPS = [
 
     # My apps
-
+    'account',
     
 
     # django apps
