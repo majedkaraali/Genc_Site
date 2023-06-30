@@ -19,25 +19,25 @@ def home_screen_view(request, *args, **kwargs):
 		query = request.GET.get('q', '')
 		context['query'] = str(query)
 
-#	blog_posts = sorted(get_blog_queryset(query), key=attrgetter('date_updated'), reverse=True)
+	blog_posts = sorted(get_blog_queryset(query), key=attrgetter('date_updated'), reverse=True)
 	
 
 
 	# Pagination
 	page = request.GET.get('page', 1)
-#	blog_posts_paginator = Paginator(blog_posts, BLOG_POSTS_PER_PAGE)
-#	try:
-	#	blog_posts = blog_posts_paginator.page(page)
-#	except PageNotAnInteger:
-#		blog_posts = blog_posts_paginator.page(BLOG_POSTS_PER_PAGE)
-#	except EmptyPage:
-#		blog_posts = blog_posts_paginator.page(blog_posts_paginator.num_pages)
+	blog_posts_paginator = Paginator(blog_posts, BLOG_POSTS_PER_PAGE)
+	try:
+		blog_posts = blog_posts_paginator.page(page)
+	except PageNotAnInteger:
+		blog_posts = blog_posts_paginator.page(BLOG_POSTS_PER_PAGE)
+	except EmptyPage:
+		blog_posts = blog_posts_paginator.page(blog_posts_paginator.num_pages)
 
-#	context['blog_posts'] = blog_posts
-#	events=Event.objects.all()
+	context['blog_posts'] = blog_posts
+	events=Event.objects.all()
 	
-#	sorted_events = sorted(events, key=lambda x: x.time, reverse=True)
-#	context['events']=sorted_events
+	sorted_events = sorted(events, key=lambda x: x.time, reverse=True)
+	context['events']=sorted_events
 	return render(request, "personal/home.html", context)
 
 
