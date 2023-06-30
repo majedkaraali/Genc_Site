@@ -33,7 +33,7 @@ def home_screen_view(request, *args, **kwargs):
 	except EmptyPage:
 		blog_posts = blog_posts_paginator.page(blog_posts_paginator.num_pages)
 
-	context['blog_posts'] = blog_posts
+#	context['blog_posts'] = blog_posts
 	events=Event.objects.all()
 	
 	sorted_events = sorted(events, key=lambda x: x.time, reverse=True)
