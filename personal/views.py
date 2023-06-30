@@ -19,7 +19,7 @@ def home_screen_view(request, *args, **kwargs):
 		query = request.GET.get('q', '')
 		context['query'] = str(query)
 
-	blog_posts = sorted(get_blog_queryset(query), key=attrgetter('date_updated'), reverse=True)
+#	blog_posts = sorted(get_blog_queryset(query), key=attrgetter('date_updated'), reverse=True)
 	
 
 
