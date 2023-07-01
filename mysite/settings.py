@@ -55,10 +55,6 @@ INSTALLED_APPS = [
 
 
 # settings.py
-CORS_ALLOWED_ORIGINS = [
-    "https://gencsite-production.up.railway.app",
-
-]
 
 
 AUTH_USER_MODEL = 'account.Account'
