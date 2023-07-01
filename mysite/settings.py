@@ -56,11 +56,8 @@ INSTALLED_APPS = [
 AUTH_USER_MODEL = 'account.Account'
 
 
-CORS_ALLOWED_ORIGINS = [
+CSRF_TRUSTED_ORIGINS = ['https://gencsite-production.up.railway.app/']
 
-    "https://gencsite-production.up.railway.app",
-
-]
 
 
 MIDDLEWARE = [
