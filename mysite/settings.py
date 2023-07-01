@@ -50,7 +50,18 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
+    'corsheaders.middleware.CorsMiddleware',
+
 ]
+
+
+# settings.py
+CORS_ALLOWED_ORIGINS = [
+    "https://gencsite-production.up.railway.app",
+    # Add other trusted origins as needed
+]
+
 
 AUTH_USER_MODEL = 'account.Account'
 
