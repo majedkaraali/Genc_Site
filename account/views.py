@@ -1,10 +1,12 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
-
+from django.views.decorators.csrf import csrf_exempt
+from django.http import HttpResponse
 from account.forms import RegistrationForm, AccountAuthenticationForm, AccountUpdateForm
 from blog.models import BlogPost
 
 
+@csrf_exempt
 
 def registration_view(request):
 	context = {}
