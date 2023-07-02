@@ -45,7 +45,7 @@ urlpatterns = [
     path('', home_screen_view, name="home"),
     path('about/',about_us,name='about'),
     path('account/', account_view, name="account"),
-    path('admin/', admin.site.urls , name='admin'),
+    path('admin/', admin.site.urls ),
     path('blog/', include('blog.urls', 'blog')),
     path('login/', login_view, name="login"),
     path('logout/', logout_view, name="logout"),
