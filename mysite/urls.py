@@ -18,6 +18,7 @@ from django.urls import path, include
 from django.contrib.auth import views as auth_views
 from django.conf.urls.static import static
 from django.conf import settings
+from django.urls import reverse
 
 
 
@@ -44,7 +45,7 @@ urlpatterns = [
     path('', home_screen_view, name="home"),
     path('about/',about_us,name='about'),
     path('account/', account_view, name="account"),
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls , name='admin'),
     path('blog/', include('blog.urls', 'blog')),
     path('login/', login_view, name="login"),
     path('logout/', logout_view, name="logout"),
@@ -53,7 +54,7 @@ urlpatterns = [
    
     path('events/',all_events,name='events'),
     path('team/',team_view,name='team'),
-    path('dashboard/', admin.site.urls, name='dashboard'),
+ 
 
     
     path('community/',community_view,name='community'),
