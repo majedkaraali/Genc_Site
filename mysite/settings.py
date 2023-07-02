@@ -57,7 +57,7 @@ AUTH_USER_MODEL = 'account.Account'
 
 
 
-CSRF_TRUSTED_ORIGINS = ['https://*.gencsite-production.up.railway.app',]
+CSRF_TRUSTED_ORIGINS = ['https://*.gencbilisimciler.up.railway.app',]
 
 
 MIDDLEWARE = [
