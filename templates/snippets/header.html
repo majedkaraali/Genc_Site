@@ -63,6 +63,11 @@
 					<a class="nav-link" href="{% url 'login' %}">Login</a>
 				  </li>
 				{% endif %}
+				{% if request.user.is_staff %}
+				<li class="nav-item">
+					<a class="nav-link" href="{% url 'dashboard' %}">Dashborad</a>
+				  </li>
+				{% endif %}
 			  </ul>
 			  
 			  

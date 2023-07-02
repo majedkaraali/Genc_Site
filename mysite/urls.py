@@ -37,6 +37,7 @@ from account.views import (
     account_view,
 	must_authenticate_view,
     
+    
 )
 
 urlpatterns = [
@@ -52,7 +53,7 @@ urlpatterns = [
    
     path('events/',all_events,name='events'),
     path('team/',team_view,name='team'),
-
+    path('dashboard/', admin.site.urls, name='dashboard'),
 
     
     path('community/',community_view,name='community'),
