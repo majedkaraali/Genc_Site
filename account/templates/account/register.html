@@ -45,7 +45,7 @@
 </style>
 <p style="padding-top: 40px;"></p>
 
-<form class="form-signin" method="post">
+<form class="form-signin" method="post">{% csrf_token %}
   <div class="d-flex flex-column pb-3">
     <img class="img-fluid mx-auto d-block" src="{% static 'logo.png' %}" alt="logo image" width="250" height="250">
   </div>
