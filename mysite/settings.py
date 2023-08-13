@@ -15,7 +15,20 @@ import dj_database_url
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-DATABASE_URL= "postgresql://postgres:D8b5IegGFH1uozlNt9DG@containers-us-west-206.railway.app:5859/railway"
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+# ...
+
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
+    }
+}
+
+#DATABASE_URL= "postgresql://postgres:D8b5IegGFH1uozlNt9DG@containers-us-west-206.railway.app:5859/railway"
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
@@ -94,12 +107,17 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
+# DATABASES = {
+#     "default": dj_database_url.config(default=DATABASE_URL,conn_max_age=1800),
+
+#     }
+
 DATABASES = {
-    "default": dj_database_url.config(default=DATABASE_URL,conn_max_age=1800),
-
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
     }
-
-
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
