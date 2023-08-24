@@ -25,13 +25,6 @@ from pathlib import Path
 
 
 
-
-
-
-
-
-
-
 """
 Django settings for mysite project.
 
