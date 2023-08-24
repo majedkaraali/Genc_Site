@@ -27,13 +27,13 @@ DATABASES = {
         "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
     }
 }
-
-#DATABASE_URL= "postgresql://postgres:D8b5IegGFH1uozlNt9DG@containers-us-west-206.railway.app:5859/railway"
+                
+DATABASE_URL= "postgres://default:YNJtLEDk4w1o@ep-delicate-mode-58220747-pooler.us-east-1.postgres.vercel-storage.com:5432/verceldb"
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '!p1ai_b373g3bmz-**m@%h9+0_8xm7*41etdbi+t266-mogm08'
+SECRET_KEY = 'YNJtLEDk4w1o'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -107,17 +107,17 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-# DATABASES = {
-#     "default": dj_database_url.config(default=DATABASE_URL,conn_max_age=1800),
-
-#     }
-
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+    "default": dj_database_url.config(default=DATABASE_URL,conn_max_age=1800),
+
     }
-}
+
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.sqlite3",
+#         "NAME": BASE_DIR / "db.sqlite3",
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
