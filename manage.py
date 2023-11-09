@@ -4,6 +4,8 @@ import os
 import sys
 #ududu
 
+
+
 def main():
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mysite.settings')
     try:
